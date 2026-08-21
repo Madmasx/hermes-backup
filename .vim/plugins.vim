@@ -10,11 +10,10 @@ Plug 'maximbaz/lightline-ale'
 Plug 'itchyny/lightline.vim'
 
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Tree
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " typing
 Plug 'alvan/vim-closetag'
@@ -46,5 +45,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
