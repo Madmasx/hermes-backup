@@ -70,7 +70,7 @@ require("lazy").setup({
     { "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end },
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
-    { "folke/which-key.nvim", event = "VeryLazy", opts = {} },
+    { "folke/which-key.nvim", event = "VeryLazy", opts = { preset = "modern" } },
 
     -- Estética Adicional: Bufferline (Pestañas de buffers) y Notificaciones Nvim-notify
     { "nvim-tree/nvim-web-devicons" },
@@ -145,7 +145,7 @@ vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
 --   - <leader>g          : Buscar texto en proyecto (Rg)
 --   - Ctrl + w + w       : Cambiar entre paneles (ej. de NERDTree al código)
 --   - yy / p             : Copiar / pegar línea
---   - "+y / "+p          : Copiar / pegar desde/hacia el portapapeles del sistema
+--   - "+y / "+p          : Copiar / pegar desde/hacia el portapapeles del sistema (Wayland con wl-copy/wl-paste)
 --   - u / Ctrl+r         : Deshacer / Rehacer
 --   - :Goyo              : Modo Zen / Escritura sin distracciones
 --   - :Remove / :Rename  : Borrar o renombrar archivo actual (Vim-Eunuch)

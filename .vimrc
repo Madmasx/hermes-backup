@@ -1,7 +1,23 @@
 set number
 set mouse=a
 set numberwidth=1
-set clipboard=unnamed
+set clipboard=unnamedplus
+if has('wsl')
+  " config for wsl if needed
+elseif executable('wl-copy')
+  let g:clipboard = {
+        \ 'name': 'wl-clipboard',
+        \ 'copy': {
+        \    '+': 'wl-copy',
+        \    '*': 'wl-copy',
+        \ },
+        \ 'paste': {
+        \    '+': 'wl-paste --no-newline',
+        \    '*': 'wl-paste --no-newline',
+        \ },
+        \ 'cache_enabled': 1,
+        \ }
+endif
 syntax on
 set showcmd
 set ruler
