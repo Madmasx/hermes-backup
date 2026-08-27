@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/home/madmasx/.hermes/logs/curator/20260827-181938",
+  "last_run_at": "2026-08-27T18:19:38.373722+00:00",
+  "last_run_duration_seconds": 0.701076,
+  "last_run_summary": "auto: 2 marked stale; llm: skipped (consolidation off)",
+  "last_run_summary_shown_at": "2026-08-20T17:45:49.438948+00:00",
+  "paused": false,
+  "run_count": 7
+}

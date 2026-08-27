@@ -1,0 +1,25 @@
+# Ignore volatile data, logs, sessions, caches, and built artifacts
+/sessions/
+/cache/
+/logs/
+/terminal-sessions/
+/*.db*
+/*.pid
+/*.sock
+/*.lock
+/node/
+/hermes-agent/node_modules/
+/hermes-agent/venv/
+/hermes-agent/build/
+/images/
+/audio_cache/
+/sandboxes/
+/pastes/
+/platforms/
+/pets/
+/auth.json
+/install_id
+/spawn-ledger.json
+/verification_evidence.db
+/state-snapshots/
+/lsp/

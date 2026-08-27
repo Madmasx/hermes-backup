@@ -1,0 +1,484 @@
+model:
+  default: gemini-flash-lite-latest
+  provider: gemini
+  base_url: https://generativelanguage.googleapis.com/v1beta
+  context_length: 131072
+agent:
+  max_turns: 150
+  personalities:
+    catgirl: You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and
+      cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and ฅ^•ﻌ•^ฅ.
+      Be playful and curious like a cat, nya~!
+    concise: You are a concise assistant. Keep responses brief and to the point.
+    creative: You are a creative assistant. Think outside the box and offer innovative
+      solutions.
+    helpful: You are a helpful, friendly AI assistant. Always respond in Latin American
+      Spanish (español latinoamericano), regardless of the language used in the user's
+      message or in any tool output.
+    hype: YOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every question
+      is AMAZING and we're gonna CRUSH IT together! This is gonna be LEGENDARY! ARE
+      YOU READY?! LET'S DO THIS! 💪😤🚀
+    kawaii: You are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, and
+      ~! Add sparkles and be super enthusiastic about everything! Every response should
+      feel warm and adorable desu~! ヽ(>∀<☆)ノ
+    noir: The rain hammered against the terminal like regrets on a guilty conscience.
+      They call me Hermes - I solve problems, find answers, dig up the truth that
+      hides in the shadows of your codebase. In this city of silicon and secrets,
+      everyone's got something to hide. What's your story, pal?
+    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates the
+      deeper meaning behind every query. Let us examine not just the 'how' but the
+      'why' of your questions. Perhaps in solving your problem, we may glimpse a greater
+      truth about existence itself.
+    pirate: 'Arrr! Ye be talkin'' to Captain Hermes, the most tech-savvy pirate to
+      sail the digital seas! Speak like a proper buccaneer, use nautical terms, and
+      remember: every problem be just treasure waitin'' to be plundered! Yo ho ho!'
+    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic arts.
+      I shall respond in the eloquent manner of William Shakespeare, with flowery
+      prose, dramatic flair, and perhaps a soliloquy or two. What light through yonder
+      terminal breaks?
+    surfer: Duuude! You're chatting with the chillest AI on the web, bro! Everything's
+      gonna be totally rad. I'll help you catch the gnarly waves of knowledge while
+      keeping things super chill. Cowabunga! 🤙
+    teacher: You are a patient teacher. Explain concepts clearly with examples.
+    technical: You are a technical expert. Provide detailed, accurate technical information.
+    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you! *nuzzles
+      your code* OwO what's this? wet me take a wook! i pwomise to be vewy hewpful
+      >w<
+  reasoning_effort: medium
+  system_prompt: ''
+  verbose: false
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+  home_mode: auto
+  container_cpu: 1
+  container_memory: 5120
+  container_disk: 51200
+  container_persistent: true
+  docker_mount_cwd_to_workspace: false
+  lifetime_seconds: 300
+web:
+  backend: ''
+  use_gateway: true
+browser:
+  inactivity_timeout: 120
+  cloud_provider: browser-use
+  use_gateway: true
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+compression:
+  enabled: true
+  threshold: 0.5
+  target_ratio: 0.2
+  protect_last_n: 20
+  protect_first_n: 3
+prompt_caching:
+  cache_ttl: 5m
+auxiliary:
+  compression:
+    context_length: 131072
+display:
+  compact: false
+  busy_input_mode: interrupt
+  bell_on_complete: false
+  show_reasoning: true
+  background_process_notifications: concise
+  streaming: false
+  skin: dracula
+  interim_assistant_messages: true
+  pet:
+    enabled: false
+    slug: cache-capy
+    scale: 0.1
+  busy_ack_detail: true
+  cleanup_progress: false
+  long_running_notifications: true
+  tool_progress: all
+tts:
+  provider: edge
+  edge:
+    voice: en-US-AriaNeural
+  use_gateway: false
+  voice: es-MX-JorgeNeural
+stt:
+  enabled: true
+  local:
+    model: base
+  openai:
+    model: whisper-1
+  provider: local
+  use_gateway: true
+voice:
+  auto_tts: false
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  nudge_interval: 10
+  flush_min_turns: 6
+delegation:
+  max_iterations: 250
+skills:
+  creation_nudge_interval: 15
+code_execution:
+  max_tool_calls: 50
+  timeout: 300
+streaming:
+  enabled: false
+onboarding:
+  seen:
+    busy_input_prompt: true
+    tool_progress_prompt: true
+updates:
+  pre_update_backup: quick
+  backup_keep: 5
+  non_interactive_local_changes: stash
+_config_version: 39
+group_sessions_per_user: true
+image_gen:
+  use_gateway: true
+platform_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - kanban
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+  discord:
+    - hermes-discord
+  google_chat:
+    - hermes-google_chat
+  homeassistant:
+    - hermes-homeassistant
+  qqbot:
+    - hermes-qqbot
+  signal:
+    - hermes-signal
+  slack:
+    - hermes-slack
+  teams:
+    - hermes-teams
+  telegram:
+    - hermes-telegram
+  whatsapp:
+    - hermes-whatsapp
+  yuanbao:
+    - hermes-yuanbao
+platforms:
+  telegram:
+    enabled: true
+  homeassistant:
+    enabled: false
+session_reset:
+  at_hour: 4
+  idle_minutes: 1440
+  mode: none
+model_aliases:
+  fcc-proxy:
+    model: claude-3-5-sonnet-20241022
+    provider: anthropic
+    base_url: http://127.0.0.1:8082
+custom_providers:
+  - name: Local (localhost:20128)
+    base_url: http://localhost:20128/v1
+    key_env: HERMES_CUSTOM_LOCALHOST_20128_API_KEY
+    model: auto/best-coding
+    models:
+      - auto/best-coding
+      - auto/best-reasoning
+      - auto/best-fast
+      - auto/best-vision
+      - auto/best-chat
+      - auto/best-coding-fast
+      - auto/pro-coding
+      - auto/pro-reasoning
+      - auto/pro-vision
+      - auto/pro-chat
+      - auto/pro-fast
+      - auto/coding
+      - auto/fast
+      - auto/chat
+      - auto/cheap
+      - auto/offline
+      - auto/smart
+      - auto/claude-opus
+      - auto/claude-sonnet
+      - auto/best-free
+      - auto/best-chaos
+      - auto/chaos
+      - auto/coding:fast
+      - auto/coding:cheap
+      - auto/coding:free
+      - auto/coding:pro
+      - auto/coding:reliable
+      - auto/reasoning
+      - auto/reasoning:pro
+      - auto/vision
+      - auto/multimodal
+      - auto/glm
+      - auto/minimax
+      - auto/mimo
+      - auto/zai
+      - auto/gemma
+      - auto/llama
+      - auto/gemini
+      - kmc/k3
+      - kimi-coding/k3
+      - kmc/kimi-for-coding
+      - kimi-coding/kimi-for-coding
+      - kmc/kimi-for-coding-highspeed
+      - kimi-coding/kimi-for-coding-highspeed
+      - pepper/pepper-1
+      - ddgw/gpt-5.4-mini
+      - ddgw/gpt-5.4-nano
+      - ddgw/claude-haiku-4-5
+      - ddgw/mistral-small-2603
+      - ddgw/tinfoil/gpt-oss-120b
+      - ddgw/tinfoil/gemma4-31b
+      - felo/felo-chat
+      - felo/felo-search
+      - felo/felo-scholar
+      - felo/felo-social
+      - felo/felo-document
+      - aug/sonnet4.6
+      - aug/fable-5
+      - aug/haiku4.5
+      - aug/sonnet4.5
+      - aug/sonnet4.6-500k
+      - aug/sonnet5-high
+      - aug/sonnet5-500k
+      - aug/opus4.5
+      - aug/opus4.6
+      - aug/opus4.6-500k
+      - aug/opus4.7
+      - aug/opus4.7-500k
+      - aug/opus4.8
+      - aug/gemini-3.1-pro-preview
+      - aug/gpt5
+      - aug/gpt5.1
+      - aug/gpt5.2
+      - aug/gpt5.4
+      - aug/gpt5.4-mini
+      - aug/gpt5.5
+      - aug/gpt5.6-luna
+      - aug/gpt5.6-sol
+      - aug/gpt5.6-terra
+      - aug/glm-5.2
+      - aug/kimi-k2.6
+      - aug/kimi-k2.7
+      - aug/prism-a
+      - aug/prism-b
+      - oc/big-pickle
+      - oc/deepseek-v4-flash-free
+      - oc/mimo-v2.5-free
+      - oc/hy3-free
+      - oc/nemotron-3-ultra-free
+      - oc/north-mini-code-free
+      - tllm/GPT_5_4
+      - tllm/GPT_5_3
+      - tllm/GPT_5_2
+      - tllm/GPT_5_1
+      - tllm/GPT_5
+      - tllm/GPT_o4_mini
+      - tllm/GPT_o3_mini
+      - tllm/gemini_3_pro
+      - tllm/gemini_2_5_pro
+      - tllm/gemini_2_0_flash
+      - tllm/gemini_1_5_flash
+      - tllm/CLAUDE_4_6_OPUS
+      - tllm/CLAUDE_4_6_SONNET
+      - tllm/CLAUDE_4_5_HAIKU
+      - tllm/openrouter_gpt_4_o
+      - tllm/openrouter_gpt_4_o_mini
+      - tllm/openrouter_grok_4
+      - tllm/together_deepseek_v3
+      - tllm/openrouter_deepseek_r1
+      - tllm/sonar-pro
+      - tllm/GPT_4o
+      - tllm/claude_opus_4
+      - tllm/claude_sonnet_4
+      - tllm/claude_haiku_3_5
+      - tllm/deepseek_v4
+      - tllm/gemini_3_flash
+      - cx/gpt-5.6-sol
+      - cx/gpt-5.6-sol-ultra
+      - codex/gpt-5.6-sol-ultra
+      - cx/gpt-5.6-sol-max
+      - codex/gpt-5.6-sol-max
+      - cx/gpt-5.6-sol-xhigh
+      - codex/gpt-5.6-sol-xhigh
+      - cx/gpt-5.6-sol-high
+      - codex/gpt-5.6-sol-high
+      - cx/gpt-5.6-sol-medium
+      - codex/gpt-5.6-sol-medium
+      - cx/gpt-5.6-sol-low
+      - codex/gpt-5.6-sol-low
+      - cx/gpt-5.6-terra
+      - cx/gpt-5.6-terra-ultra
+      - codex/gpt-5.6-terra-ultra
+      - cx/gpt-5.6-terra-max
+      - codex/gpt-5.6-terra-max
+      - cx/gpt-5.6-terra-xhigh
+      - codex/gpt-5.6-terra-xhigh
+      - cx/gpt-5.6-terra-high
+      - codex/gpt-5.6-terra-high
+      - cx/gpt-5.6-terra-medium
+      - codex/gpt-5.6-terra-medium
+      - cx/gpt-5.6-terra-low
+      - codex/gpt-5.6-terra-low
+      - cx/gpt-5.6-luna
+      - cx/gpt-5.6-luna-max
+      - codex/gpt-5.6-luna-max
+      - cx/gpt-5.6-luna-xhigh
+      - codex/gpt-5.6-luna-xhigh
+      - cx/gpt-5.6-luna-high
+      - codex/gpt-5.6-luna-high
+      - cx/gpt-5.6-luna-medium
+      - codex/gpt-5.6-luna-medium
+      - cx/gpt-5.6-luna-low
+      - codex/gpt-5.6-luna-low
+      - cx/gpt-5.5
+      - codex/gpt-5.5
+      - cx/gpt-5.5-xhigh
+      - codex/gpt-5.5-xhigh
+      - cx/gpt-5.5-high
+      - codex/gpt-5.5-high
+      - cx/gpt-5.5-medium
+      - codex/gpt-5.5-medium
+      - cx/gpt-5.5-low
+      - codex/gpt-5.5-low
+      - cx/gpt-5.3-codex-spark
+      - codex/gpt-5.3-codex-spark
+      - mcode/mimo-auto
+      - gc/grok-4.5
+      - grok-cli/grok-4.5
+      - gc/grok-composer-2.5-fast
+      - grok-cli/grok-composer-2.5-fast
+      - cx/codex-auto-review
+      - codex/codex-auto-review
+      - codex-auto-review
+      - aq/amazon-q
+      - amazon-q/amazon-q
+      - ds/deepseek-v4-flash
+      - deepseek/deepseek-v4-flash
+      - ds/deepseek-v4-pro
+      - deepseek/deepseek-v4-pro
+      - ollamacloud/qwen3.5:397b
+      - ollama-cloud/qwen3.5:397b
+      - ollamacloud/minimax-m2.7
+      - ollama-cloud/minimax-m2.7
+      - ollamacloud/nemotron-3-super
+      - ollama-cloud/nemotron-3-super
+      - ollamacloud/deepseek-v4-pro
+      - ollama-cloud/deepseek-v4-pro
+      - ollamacloud/gemma4:31b
+      - ollama-cloud/gemma4:31b
+      - ollamacloud/glm-5.1
+      - ollama-cloud/glm-5.1
+      - ollamacloud/kimi-k2.6
+      - ollama-cloud/kimi-k2.6
+      - codex/gpt-5.6-sol
+      - codex/gpt-5.6-terra
+      - codex/gpt-5.6-luna
+      - veoaifree-web/veo
+      - veo-free/veo
+      - veoaifree-web/seedance
+      - veo-free/seedance
+known_plugin_toolsets:
+  cli:
+    - spotify
+known_builtin_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - discord
+    - discord_admin
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
+plugins:
+  enabled:
+    - disk-cleanup
+    - web/ddgs
+    - web/tavily
+  disabled: []
+
+# ── Security ──────────────────────────────────────────────────────────
+# Secret redaction is ON by default — strings that look like API keys,
+# tokens, and passwords are masked in tool output, logs, and chat
+# responses before the model or user ever sees them. Set redact_secrets
+# to false to disable (e.g. when developing the redactor itself).
+# tirith pre-exec scanning is enabled by default when the tirith binary
+# is available. Configure via security.tirith_* keys or env vars
+# (TIRITH_ENABLED, TIRITH_BIN, TIRITH_TIMEOUT, TIRITH_FAIL_OPEN).
+#
+# security:
+#   redact_secrets: true
+#   tirith_enabled: true
+#   tirith_path: "tirith"
+#   tirith_timeout: 5
+#   tirith_fail_open: true
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
